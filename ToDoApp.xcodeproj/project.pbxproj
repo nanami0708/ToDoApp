@@ -13,6 +13,11 @@
 		023B374B217C2089003AD8F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 023B374A217C2089003AD8F9 /* Assets.xcassets */; };
 		023B374E217C2089003AD8F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 023B374C217C2089003AD8F9 /* LaunchScreen.storyboard */; };
 		023B3756217C39A2003AD8F9 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023B3755217C39A2003AD8F9 /* AddViewController.swift */; };
+		023B3759217C5546003AD8F9 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023B3757217C5546003AD8F9 /* TableViewCell.swift */; };
+		023B375A217C5546003AD8F9 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 023B3758217C5546003AD8F9 /* TableViewCell.xib */; };
+		023B3765217C60E9003AD8F9 /* ico_check_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 023B3763217C60E9003AD8F9 /* ico_check_on.png */; };
+		023B3766217C60E9003AD8F9 /* ico_check_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 023B3764217C60E9003AD8F9 /* ico_check_off.png */; };
+		023B3768217C6270003AD8F9 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023B3767217C6270003AD8F9 /* CheckBox.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,11 @@
 		023B374D217C2089003AD8F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		023B374F217C2089003AD8F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		023B3755217C39A2003AD8F9 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		023B3757217C5546003AD8F9 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		023B3758217C5546003AD8F9 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		023B3763217C60E9003AD8F9 /* ico_check_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_check_on.png; sourceTree = "<group>"; };
+		023B3764217C60E9003AD8F9 /* ico_check_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_check_off.png; sourceTree = "<group>"; };
+		023B3767217C6270003AD8F9 /* CheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +70,11 @@
 				023B3745217C2087003AD8F9 /* ViewController.swift */,
 				023B3755217C39A2003AD8F9 /* AddViewController.swift */,
 				023B3747217C2087003AD8F9 /* Main.storyboard */,
+				023B3757217C5546003AD8F9 /* TableViewCell.swift */,
+				023B3758217C5546003AD8F9 /* TableViewCell.xib */,
+				023B3767217C6270003AD8F9 /* CheckBox.swift */,
+				023B3764217C60E9003AD8F9 /* ico_check_off.png */,
+				023B3763217C60E9003AD8F9 /* ico_check_on.png */,
 				023B374A217C2089003AD8F9 /* Assets.xcassets */,
 				023B374C217C2089003AD8F9 /* LaunchScreen.storyboard */,
 				023B374F217C2089003AD8F9 /* Info.plist */,
@@ -126,7 +141,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				023B374E217C2089003AD8F9 /* LaunchScreen.storyboard in Resources */,
+				023B375A217C5546003AD8F9 /* TableViewCell.xib in Resources */,
+				023B3765217C60E9003AD8F9 /* ico_check_on.png in Resources */,
 				023B374B217C2089003AD8F9 /* Assets.xcassets in Resources */,
+				023B3766217C60E9003AD8F9 /* ico_check_off.png in Resources */,
 				023B3749217C2087003AD8F9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,8 +157,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				023B3746217C2087003AD8F9 /* ViewController.swift in Sources */,
+				023B3759217C5546003AD8F9 /* TableViewCell.swift in Sources */,
 				023B3744217C2087003AD8F9 /* AppDelegate.swift in Sources */,
 				023B3756217C39A2003AD8F9 /* AddViewController.swift in Sources */,
+				023B3768217C6270003AD8F9 /* CheckBox.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

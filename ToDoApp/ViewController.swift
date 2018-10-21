@@ -8,26 +8,32 @@
 
 import UIKit
 
+
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
     
     var resultArray = [String]()
     
+    let userDefaults: UserDefaults = UserDefaults.standard
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         tableView.delegate = self
+        tableView.dataSource = self
+        
+        self.tableView?.register(UINib(nibName: "cell", bundle: nil), forCellReuseIdentifier: "cell")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        //アプリ内にあarrayというキー値で保存された、配列arrayを取り出す
-        if UserDefaults.standard.object(forKey: "array") != nil{
+        //アプリ内にあるarrayというキー値で保存された、配列arrayを取り出す
+        if userDefaults.object(forKey: "array") != nil{
             
-            resultArray = UserDefaults.standard.object(forKey: "array") as! [String]
+            resultArray = userDefaults.object(forKey: "array") as! [String]
         }
         
         tableView.reloadData()
@@ -42,11 +48,13 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         //動的に処理する
         return resultArray.count
     }
+    
+    
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
         //cell関連
-        let  cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let  cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
         
         cell.textLabel?.text = resultArray[indexPath.row]
         
@@ -62,7 +70,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             
             //その配列を再びアプリ内保存
             
-            UserDefaults.standard.set(resultArray, forKey: "array")
+            userDefaults.set(resultArray, forKey: "array")
             
             //tableviewを更新
             tableView.reloadData()

@@ -23,8 +23,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         tableView.delegate = self
         tableView.dataSource = self
-        
-        self.tableView?.register(UINib(nibName: "cell", bundle: nil), forCellReuseIdentifier: "cell")
+        // ->背景色をグレーに変更する
+        self.view.backgroundColor = UIColor(red: 0.92, green: 0.92, blue: 0.92, alpha: 1.0)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,9 +54,10 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
         //cell関連
-        let  cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
+        let  cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        cell.textLabel?.text = resultArray[indexPath.row]
+        let label1 = cell.viewWithTag(2) as! UILabel
+        label1.text = resultArray[indexPath.row]
         
         return cell
     }
@@ -75,6 +76,11 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             //tableviewを更新
             tableView.reloadData()
         }
+    }
+    
+    //cell の高さ
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 90.0
     }
 
 }

@@ -14,100 +14,84 @@ class AddViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataS
     @IBOutlet weak var mojiColor: UITextField!
     
     var toolBar:UIToolbar!
-//    var datePicker: UIDatePicker = UIDatePicker()
+    var datePicker: UIDatePicker = UIDatePicker()
     var pickerView: UIPickerView = UIPickerView()
     let list = ["赤", "黒", "黄色", "緑", "グレー", "オレンジ", "ピンク"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-         //↓ここから文字色
         
-        pickerView.delegate = self
-        pickerView.dataSource = self
-        pickerView.showsSelectionIndicator = true
-        
-        let toolbar = UIToolbar(frame: CGRect(x:0, y:0, width:view.frame.size.width, height:35))
-        let colorDoneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(stringColorDone))
-        let cancelItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
-        toolbar.setItems([cancelItem, colorDoneItem], animated: true)
-        
-        self.mojiColor.inputView = pickerView
-        self.mojiColor.inputAccessoryView = toolbar
-        
-        //↑ここまで文字色
-        
-     //↓ここから期限設定
-        
-        //datepicker上のtoolbarのdoneボタン
+        //↓ここから期限設定
         toolBar = UIToolbar()
         toolBar.sizeToFit()
-        let toolBarBtn = UIBarButtonItem(title: "DONE", style: .plain, target: self, action: "doneBtn")
-        toolBar.items = [toolBarBtn]
+        //datepicker上のtoolbarのdoneボタン
+        let toolBarBtn = UIBarButtonItem(title: "DONE", style: .done, target: self, action: #selector(dateDone))
+        //キャンセルボタン dateCancelを呼び出す
+        let cancelItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dateCancel))
+        // ツールバーに登録
+        toolBar.items = [toolBarBtn, cancelItem]
         dateText.inputAccessoryView = toolBar
         
         // ピッカー設定
-//        datePicker.datePickerMode = UIDatePicker.Mode.dateAndTime
-//        datePicker.timeZone = NSTimeZone.local
-//        datePicker.locale = Locale.current
-//        dateText.inputView = datePicker
-//
-//        // 決定バーの生成
-//        let dateToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35))
-//        let spacelItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
-////        let dateDoneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dateDone))
-////        toolbar.setItems([spacelItem, dateDoneItem], animated: true)
-//
-//        // インプットビュー設定
-//        self.dateText.inputView = datePicker
-//        self.dateText.inputAccessoryView = dateToolbar
-     //↑ここまで期限設定
+        datePicker.datePickerMode = UIDatePicker.Mode.dateAndTime
+        datePicker.timeZone = NSTimeZone.local
+        datePicker.locale = Locale.current
+        dateText.inputView = datePicker
+        //↑ここまで期限設定
+        
+        
+        //↓ここから文字色ピッカー
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        pickerView.showsSelectionIndicator = true
+
+        //pickerView上のtoolbar
+        let colorPickerToolbar = UIToolbar(frame: CGRect(x:0, y:0, width:view.frame.size.width, height:35))
+        // Doneボタン
+        let colorDoneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(colorDone))
+        // キャンセルボタン
+        let colorCancelItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(colorCancel))
+        // ツールバーに登録
+        colorPickerToolbar.setItems([colorDoneItem, colorCancelItem], animated: true)
+        self.mojiColor.inputView = pickerView
+        self.mojiColor.inputAccessoryView = colorPickerToolbar
+        //↑ここまで文字色
+        
         // ->背景色をグレーに変更する
         self.view.backgroundColor = UIColor(red: 0.92, green: 0.92, blue: 0.92, alpha: 1.0)
-        // Do any additional setup after loading the view.
+        
+        
     }
     
-//    // 決定ボタン押下
-//    @objc func dateDone() {
-//        dateText.endEditing(true)
-//
-//        // 日付のフォーマット
-//        let formatter = DateFormatter()
-//        formatter.dateFormat = "yyyy-MM-dd"
-//        dateText.text = "\(formatter.string(from: Date()))"
-//    }
-    
-    //↓ここから期限
-    
-    //テキストフィールドが選択されたらdatepickerを表示
-    @IBAction func textFieldEditing(sender: UITextField) {
-        let datePickerView:UIDatePicker = UIDatePicker()
-        datePickerView.datePickerMode = UIDatePicker.Mode.date
-        sender.inputView = datePickerView
-        datePickerView.addTarget(self, action: Selector("datePickerValueChanged:"), for: UIControl.Event.valueChanged)
+    // 日付決定ボタンを押した時
+    @objc func dateDone() {
+        dateText.endEditing(true)
+        // 日付のフォーマット
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        dateText.text = formatter.string(from: datePicker.date)
+       
     }
     
-    //datepickerが選択されたらtextfieldに表示
-    func datePickerValueChanged(sender:UIDatePicker) {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat  = "yyyy/MM/dd";
-        dateText.text = dateFormatter.string(from: sender.date)
-    }
-    
-    //toolbarのdoneボタン
-    func doneBtn(){
+    // 日付キャンセルボタンを押した時
+    @objc func dateCancel() {
+        dateText.text = ""
         dateText.resignFirstResponder()
     }
     
-    //↑ここまで期限
-    
-    @objc func cancel() {
-        self.mojiColor.text = ""
+    // カラーDoneボタンを押した時
+    @objc func colorDone() {
         self.mojiColor.endEditing(true)
+        dateText.resignFirstResponder()
     }
     
-    @objc func stringColorDone() {
+    // カラーキャンセルボタンを押した時
+    @objc func colorCancel() {
         self.mojiColor.endEditing(true)
+        dateText.resignFirstResponder()
     }
+    
+    
     
     
     @IBOutlet weak var textField: UITextField!

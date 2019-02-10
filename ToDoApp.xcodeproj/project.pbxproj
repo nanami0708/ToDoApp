@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		020572BD2210027200327B52 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 020572BC2210027200327B52 /* back.png */; };
+		020572BF2210E1FE00327B52 /* back_buttom.png in Resources */ = {isa = PBXBuildFile; fileRef = 020572BE2210E1FE00327B52 /* back_buttom.png */; };
+		022E094921EB149700D0C792 /* kabegamiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022E094821EB149700D0C792 /* kabegamiViewController.swift */; };
 		023B3744217C2087003AD8F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023B3743217C2087003AD8F9 /* AppDelegate.swift */; };
 		023B3746217C2087003AD8F9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023B3745217C2087003AD8F9 /* ViewController.swift */; };
 		023B3749217C2087003AD8F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 023B3747217C2087003AD8F9 /* Main.storyboard */; };
@@ -17,14 +20,20 @@
 		023B3765217C60E9003AD8F9 /* ico_check_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 023B3763217C60E9003AD8F9 /* ico_check_on.png */; };
 		023B3766217C60E9003AD8F9 /* ico_check_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 023B3764217C60E9003AD8F9 /* ico_check_off.png */; };
 		023B3768217C6270003AD8F9 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023B3767217C6270003AD8F9 /* CheckBox.swift */; };
+		0251394B21C5F51C00162859 /* kakidasi.png in Resources */ = {isa = PBXBuildFile; fileRef = 0251394A21C5F51B00162859 /* kakidasi.png */; };
+		0251394D21C61EA300162859 /* setting.png in Resources */ = {isa = PBXBuildFile; fileRef = 0251394C21C61EA300162859 /* setting.png */; };
 		02930CC8218E952700B249B1 /* add_buttom.png in Resources */ = {isa = PBXBuildFile; fileRef = 02930CC7218E952700B249B1 /* add_buttom.png */; };
-		02930CCA218E9E8C00B249B1 /* back_buttom.png in Resources */ = {isa = PBXBuildFile; fileRef = 02930CC9218E9E8C00B249B1 /* back_buttom.png */; };
 		02930CD0218EB2B000B249B1 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02930CCF218EB2B000B249B1 /* EditViewController.swift */; };
-		02930CD3218ED13800B249B1 /* done_buttom.png in Resources */ = {isa = PBXBuildFile; fileRef = 02930CD1218ED13700B249B1 /* done_buttom.png */; };
-		02930CD4218ED13800B249B1 /* Save_buttom.png in Resources */ = {isa = PBXBuildFile; fileRef = 02930CD2218ED13700B249B1 /* Save_buttom.png */; };
+		02930CD7218F97C800B249B1 /* done_buttom.png in Resources */ = {isa = PBXBuildFile; fileRef = 02930CD5218F97C800B249B1 /* done_buttom.png */; };
+		02930CD8218F97C800B249B1 /* Save_buttom.png in Resources */ = {isa = PBXBuildFile; fileRef = 02930CD6218F97C800B249B1 /* Save_buttom.png */; };
+		02930CDE21985DAD00B249B1 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 02930CDD21985DAD00B249B1 /* icon.png */; };
+		02E905D821FD71E300FF9C29 /* カメラ.png in Resources */ = {isa = PBXBuildFile; fileRef = 02E905D721FD71E300FF9C29 /* カメラ.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		020572BC2210027200327B52 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
+		020572BE2210E1FE00327B52 /* back_buttom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_buttom.png; sourceTree = SOURCE_ROOT; };
+		022E094821EB149700D0C792 /* kabegamiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kabegamiViewController.swift; sourceTree = "<group>"; };
 		023B3740217C2087003AD8F9 /* ToDoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		023B3743217C2087003AD8F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		023B3745217C2087003AD8F9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -37,11 +46,14 @@
 		023B3763217C60E9003AD8F9 /* ico_check_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_check_on.png; sourceTree = "<group>"; };
 		023B3764217C60E9003AD8F9 /* ico_check_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_check_off.png; sourceTree = "<group>"; };
 		023B3767217C6270003AD8F9 /* CheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
+		0251394A21C5F51B00162859 /* kakidasi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kakidasi.png; sourceTree = SOURCE_ROOT; };
+		0251394C21C61EA300162859 /* setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting.png; sourceTree = SOURCE_ROOT; };
 		02930CC7218E952700B249B1 /* add_buttom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_buttom.png; sourceTree = "<group>"; };
-		02930CC9218E9E8C00B249B1 /* back_buttom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_buttom.png; sourceTree = "<group>"; };
 		02930CCF218EB2B000B249B1 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
-		02930CD1218ED13700B249B1 /* done_buttom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = done_buttom.png; sourceTree = "<group>"; };
-		02930CD2218ED13700B249B1 /* Save_buttom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Save_buttom.png; sourceTree = "<group>"; };
+		02930CD5218F97C800B249B1 /* done_buttom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = done_buttom.png; sourceTree = "<group>"; };
+		02930CD6218F97C800B249B1 /* Save_buttom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Save_buttom.png; sourceTree = "<group>"; };
+		02930CDD21985DAD00B249B1 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		02E905D721FD71E300FF9C29 /* カメラ.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "カメラ.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,18 +87,24 @@
 			isa = PBXGroup;
 			children = (
 				023B3743217C2087003AD8F9 /* AppDelegate.swift */,
-				023B3745217C2087003AD8F9 /* ViewController.swift */,
 				023B3755217C39A2003AD8F9 /* AddViewController.swift */,
 				02930CCF218EB2B000B249B1 /* EditViewController.swift */,
-				023B3767217C6270003AD8F9 /* CheckBox.swift */,
+				023B3745217C2087003AD8F9 /* ViewController.swift */,
+				022E094821EB149700D0C792 /* kabegamiViewController.swift */,
 				023B3747217C2087003AD8F9 /* Main.storyboard */,
+				020572BC2210027200327B52 /* back.png */,
+				023B3767217C6270003AD8F9 /* CheckBox.swift */,
 				023B3758217C5546003AD8F9 /* TableViewCell.xib */,
-				02930CD1218ED13700B249B1 /* done_buttom.png */,
-				02930CD2218ED13700B249B1 /* Save_buttom.png */,
+				02930CD5218F97C800B249B1 /* done_buttom.png */,
+				02930CD6218F97C800B249B1 /* Save_buttom.png */,
 				02930CC7218E952700B249B1 /* add_buttom.png */,
+				020572BE2210E1FE00327B52 /* back_buttom.png */,
 				023B3764217C60E9003AD8F9 /* ico_check_off.png */,
 				023B3763217C60E9003AD8F9 /* ico_check_on.png */,
-				02930CC9218E9E8C00B249B1 /* back_buttom.png */,
+				02E905D721FD71E300FF9C29 /* カメラ.png */,
+				02930CDD21985DAD00B249B1 /* icon.png */,
+				0251394A21C5F51B00162859 /* kakidasi.png */,
+				0251394C21C61EA300162859 /* setting.png */,
 				023B374A217C2089003AD8F9 /* Assets.xcassets */,
 				023B374C217C2089003AD8F9 /* LaunchScreen.storyboard */,
 				023B374F217C2089003AD8F9 /* Info.plist */,
@@ -152,14 +170,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0251394B21C5F51C00162859 /* kakidasi.png in Resources */,
+				02E905D821FD71E300FF9C29 /* カメラ.png in Resources */,
 				023B374E217C2089003AD8F9 /* LaunchScreen.storyboard in Resources */,
+				0251394D21C61EA300162859 /* setting.png in Resources */,
 				023B375A217C5546003AD8F9 /* TableViewCell.xib in Resources */,
 				023B3765217C60E9003AD8F9 /* ico_check_on.png in Resources */,
 				02930CC8218E952700B249B1 /* add_buttom.png in Resources */,
-				02930CD3218ED13800B249B1 /* done_buttom.png in Resources */,
+				02930CD7218F97C800B249B1 /* done_buttom.png in Resources */,
+				020572BF2210E1FE00327B52 /* back_buttom.png in Resources */,
 				023B374B217C2089003AD8F9 /* Assets.xcassets in Resources */,
-				02930CCA218E9E8C00B249B1 /* back_buttom.png in Resources */,
-				02930CD4218ED13800B249B1 /* Save_buttom.png in Resources */,
+				02930CDE21985DAD00B249B1 /* icon.png in Resources */,
+				020572BD2210027200327B52 /* back.png in Resources */,
+				02930CD8218F97C800B249B1 /* Save_buttom.png in Resources */,
 				023B3766217C60E9003AD8F9 /* ico_check_off.png in Resources */,
 				023B3749217C2087003AD8F9 /* Main.storyboard in Resources */,
 			);
@@ -173,6 +196,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				02930CD0218EB2B000B249B1 /* EditViewController.swift in Sources */,
+				022E094921EB149700D0C792 /* kabegamiViewController.swift in Sources */,
 				023B3746217C2087003AD8F9 /* ViewController.swift in Sources */,
 				023B3744217C2087003AD8F9 /* AppDelegate.swift in Sources */,
 				023B3756217C39A2003AD8F9 /* AddViewController.swift in Sources */,

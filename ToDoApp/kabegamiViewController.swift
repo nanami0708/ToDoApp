@@ -1,16 +1,21 @@
 //
-//  ViewController.swift
+//  kabegamiViewController.swift
 //  ToDoApp
 //
-//  Created by Nanami Mizuno on 2018/10/21.
-//  Copyright © 2018年 Nanami Mizuno. All rights reserved.
+//  Created by Nanami Mizuno on 2019/01/13.
+//  Copyright © 2019 Nanami Mizuno. All rights reserved.
+//
 
 import UIKit
 
-
-class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class kabegamiViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDelegate{
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var screenShotButton: UIButton!
+    @IBOutlet var timelabel: UILabel!
+    @IBOutlet weak var selectBackground: UIButton!
+    @IBOutlet var haikeiImageView : UIImageView!
     
     var resultArray: [String] = []
     var mojiColorArray:[String] = []
@@ -21,14 +26,12 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
+        // Do any additional setup after loading the view.
         tableView.delegate = self
         tableView.dataSource = self
         // ->背景色をグレーに変更する
         self.view.backgroundColor = UIColor(red: 0.92, green: 0.92, blue: 0.92, alpha: 1.0)
     }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -55,13 +58,12 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         //動的に処理する
         return resultArray.count
-        
     }
     
     
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         //cell関連
         let  cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
@@ -93,7 +95,13 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             break
         }
         
+        cell.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.2788250191)
+        
         return cell
+    }
+    
+    @IBAction func backButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -111,26 +119,59 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             tableView.reloadData()
         }
     }
-    
-    // Cell が選択された場合
-    func tableView(_ table: UITableView,didSelectRowAt indexPath: IndexPath) {
-            cellNum = indexPath.row
-            // SubViewController へ遷移するために Segue を呼び出す
-            performSegue(withIdentifier: "toEditViewController",sender: nil)
+    @IBAction func screenShotButton(_ sender: Any) {
+        backButton.isHidden = true
+        screenShotButton.isHidden = true
+        timelabel.isHidden = true
+        //キャプチャ取得 変数screenshotにUIImageが保存される
+        let layer = UIApplication.shared.keyWindow?.layer
+
+        //let scale = tableView.bounds.minX
+        let size: CGSize = CGSize(width: self.view.frame.size.width/*tableView.frame.size.width*/, height: self.view.frame.size.height/*tableView.frame.size.height*/)
+        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)  // スクリーンショットの取得開始
+
+        let context = UIGraphicsGetCurrentContext()!
+        
+        let affinMove = CGAffineTransform(translationX: 0, y: 0/*-tableView.frame.origin.y*/)
+        context.concatenate(affinMove)
+        layer!.render(in: UIGraphicsGetCurrentContext()!)
+        let screenshot = UIGraphicsGetImageFromCurrentImageContext()  // 描画が行われたスクリーンショットの取得
+        UIGraphicsEndImageContext()  // スクリーンショットの取得終了
+
+        UIImageWriteToSavedPhotosAlbum(screenshot!, nil, nil, nil)  // アルバムに保存
+        backButton.isHidden = false
+        screenShotButton.isHidden = false
+        timelabel.isHidden = false
+    }
+    @IBAction func selectBackground(_ sender: Any) {
+        let imagePickerController: UIImagePickerController = UIImagePickerController()
+        
+        imagePickerController.sourceType = UIImagePickerController.SourceType.photoLibrary
+        imagePickerController.delegate = self
+        imagePickerController.allowsEditing = true
+        
+        self.present(imagePickerController, animated: true, completion: nil)
     }
     
-    // Segue 準備
-    override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
-        if (segue.identifier == "toEditViewController") {
-            let editVC: EditViewController = (segue.destination as? EditViewController)!
-            editVC.cellNum = cellNum
-        }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let image = info[.originalImage] as? UIImage
+        
+        haikeiImageView.image = image
+        
+        self.dismiss(animated: true, completion: nil)
     }
-    
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
     //cell の高さ
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90.0
     }
-
 }
-
